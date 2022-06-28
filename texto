@@ -1,0 +1,21 @@
+Instalando a versão do sequelize: npm i sequelize@5.19.1 --save
+
+Instalando a versão do mysql2  : npm i mysql2@1.7.0 --save
+
+Instalando a versão do body-parser: npm i  body-parser@1.19.0 --save  
+
+Instalando a versão do ejs: npm i ejs@2.7.1 --save
+
+Instalando Bootstrap v4.1.3: Bootstrap v4.1.3
+
+comando no Workbench para mudar a permissao da senha : ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_current_password';
+
+
+1+1
+Para resolver isso, basta colocar após o seu dialect: 'mysql' (database.js), um logging: false. Ficando:
+
+ {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false
+  }
