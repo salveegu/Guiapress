@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const categoriesController = require("./categories/CategoriesController");
+const articlesController = require("./articles/ArticlesController");
+
+//importando os Models
+const Article = require("./articles/ArticleModel");
+const Category = require("./categories/CategoryModel");
+
 
 // conexão com o banco de dados
 const connection = require ("./database/database");
@@ -20,6 +27,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+
+//Rotas das categorias
+app.use("/",categoriesController);
+
+//Rotas dos artigos
+app.use("/",articlesController);
 
 app.get("/",(req,res)=>{
     res.render('index');
